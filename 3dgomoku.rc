@@ -1,0 +1,81 @@
+#pragma code_page(65001)
+
+#include "defs.h"
+#include <windows.h>
+
+GOM ICON DISCARDABLE "3D.ICO"
+GOMOKU MENU DISCARDABLE
+{
+	POPUP "文件(&F)"
+	{
+		MENUITEM "打开(&O)",      ID_OPEN
+		MENUITEM "保存(&S)",      ID_SAVE
+		MENUITEM "以图片保存(&C)",ID_SAVEIMAGE
+	}
+	POPUP "设置(&S)"
+	{
+		POPUP "先手"
+		{
+			MENUITEM "人",           ID_HUMAN_1
+			MENUITEM "机器",         ID_MACHINE_1
+		}
+		POPUP "后手"
+		{
+			MENUITEM "人",           ID_HUMAN_2
+			MENUITEM "机器",         ID_MACHINE_2
+		}
+		POPUP "棋盘大小"
+		{
+			MENUITEM "5x5x5",        ID_SIZE_5
+			MENUITEM "7x7x7",        ID_SIZE_7
+			MENUITEM "9x9x9",        ID_SIZE_9
+			MENUITEM "11x11x11",     ID_SIZE_11
+			MENUITEM "13x13x13",     ID_SIZE_13
+			MENUITEM "15x15x15",     ID_SIZE_15
+			MENUITEM "17x17x17",     ID_SIZE_17
+		}
+		POPUP "连线棋子数"
+		{
+			MENUITEM "4",            ID_WINNUM_4
+			MENUITEM "5",            ID_WINNUM_5
+			MENUITEM "6",            ID_WINNUM_6
+			MENUITEM "7",            ID_WINNUM_7
+		}
+		POPUP "响应时间"
+		{
+			MENUITEM "0.2s",         ID_TIME_2
+			MENUITEM "0.5s",         ID_TIME_5
+			MENUITEM "1s",           ID_TIME_10
+			MENUITEM "2s",           ID_TIME_20
+		}
+	}
+	POPUP "玩(&P)"
+	{
+		MENUITEM "开始",          ID_BEGIN
+		MENUITEM "暂停",          ID_STOP
+		MENUITEM "悔棋",          ID_DELETE
+		MENUITEM "跳过",          ID_PASS
+		MENUITEM "转到……",      ID_TURN
+		MENUITEM "播放",          ID_PLAY
+		MENUITEM "重开",          ID_REBEGIN
+		MENUITEM "提示",          ID_HINT
+		MENUITEM "帮助",          ID_INFO
+		MENUITEM "退出",          ID_EXIT
+		
+	}
+}
+LANGUAGE 0, SUBLANG_NEUTRAL
+IDD_DIALOG1 DIALOG 0, 0, 90, 32
+STYLE DS_3DLOOK | DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_VISIBLE | WS_POPUP | WS_SYSMENU
+CAPTION "转到"
+FONT 12, "Ms Shell Dlg"
+{
+	LTEXT       "转到：", 0,          2,  2, 22, 12, SS_LEFT, WS_EX_LEFT
+	EDITTEXT              ID_INPUT,  26,  2, 26, 12,       0, WS_EX_LEFT
+	LTEXT       "",       ID_REGION, 54,  2, 36, 12, SS_LEFT, WS_EX_LEFT
+	PUSHBUTTON  "确定",   IDOK,      24, 17, 30, 11,       0, WS_EX_LEFT
+	PUSHBUTTON  "取消",   IDCANCEL,  56, 17, 30, 11,       0, WS_EX_LEFT
+}
+
+
+1                  RT_MANIFEST    ".\\manifest.xml"
